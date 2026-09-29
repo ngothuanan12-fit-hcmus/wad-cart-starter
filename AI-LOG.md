@@ -41,3 +41,17 @@ Changed: Added immutability test using Object.freeze and separate assertions for
 Rejected: Using `toFixed(0)` which returns a string, preventing the common bug noted in the rubric.
 
 By hand: Ran `npm run gate` in PowerShell, observed quality gate turn green (exit code 0, 11 passed tests, Prettier verified), and reviewed every line of `git diff src/cart.js` and `git diff test/cart.test.js`.
+
+## 2026-09-29 — Step 4: Polish, CI verification, and SELF_ASSESSMENT_REPORT
+
+Tool: Antigravity IDE (Gemini / Claude).
+
+Asked for: Add a dedicated NaN qty test case, push to GitHub to verify CI green, and create SELF_ASSESSMENT_REPORT.md.
+
+Kept: The NaN test case using `assert.throws` with `RangeError`. The SELF_ASSESSMENT_REPORT.md structure with one row per rubric criterion, claimed points, and evidence.
+
+Changed: Updated test count references from 11 to 12 in SELF_ASSESSMENT_REPORT.md after adding the NaN test. Raised self-assessment scores after CI was verified green on GitHub Actions (CI #1, commit `d871a27`, 17s).
+
+Rejected: Nothing — all generated content was appropriate.
+
+By hand: Created GitHub repository at `ngothuanan12-fit-hcmus/wad-cart-starter`, ran `git remote set-url`, `git add -A`, `git commit`, `git push -u origin main`. Opened GitHub Actions tab and confirmed CI #1 passed with green checkmark. Verified `npm run gate` still passes locally (12 pass, 0 fail, exit code 0).
